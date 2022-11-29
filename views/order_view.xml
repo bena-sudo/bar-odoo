@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bar_app.order_model_form">
+            <field name="name">Tree Order</field>
+
+            <field name="model">bar_app.order_model</field>
+
+            <field name="arch" type="xml">
+
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="table"/>
+
+                            <field name="numclients"/>
+
+                            <field name="client"/>
+
+                            <field name="waiter"/>
+
+                            <field name="products">
+                                <tree>
+                                    <field name="name"/>
+
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+
+                            <field name="tprice"/>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bar_app.order_model_list">
+            <field name="name">Order List</field>
+
+            <field name="model">bar_app.order_model</field>
+
+            <field name="arch" type="xml">
+
+                <tree>
+
+                    <field name="table"/>
+
+                    <field name="numclients"/>
+
+                    <field name="client"/>
+
+                    <field name="waiter"/>
+
+                    <field name="tprice"/>
+
+                </tree>
+
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="bar_app.action_window_order_list">
+            <field name="name">Tree Order</field>
+            <field name="res_model">bar_app.order_model</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+    </data>
+</odoo>

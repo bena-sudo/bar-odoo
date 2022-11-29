@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Bar App" id="bar_app.menu_root" />
+
+        <!-- menu categories -->
+        <menuitem name="Product" id="bar_app.menu_product" parent="bar_app.menu_root" />
+        <menuitem name="Category" id="bar_app.menu_category" parent="bar_app.menu_root" />
+        <menuitem name="Ingredient" id="bar_app.menu_ingredient" parent="bar_app.menu_root" />
+        <menuitem name="Order" id="bar_app.menu_order" parent="bar_app.menu_root" />
+
+        <!-- actions -->
+        <menuitem name="List Product" id="bar_app.menu_product_list" parent="bar_app.menu_product" action="bar_app.action_window_product_list" />
+        <menuitem name="List Category" id="bar_app.menu_category_list" parent="bar_app.menu_category" action="bar_app.action_window_category_list" />
+        <menuitem name="List Ingredient" id="bar_app.menu_ingredient_list" parent="bar_app.menu_ingredient" action="bar_app.action_window_ingredient_list" />
+        <menuitem name="List Orders" id="bar_app.menu_order_list" parent="bar_app.menu_order" action="bar_app.action_window_order_list" />
+    </data>
+</odoo>
