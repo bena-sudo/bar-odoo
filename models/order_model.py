@@ -9,7 +9,7 @@ class OrderModel(models.Model):
     numclients = fields.Integer(string="Number clients",help="Numbers of the clients.",requiered=True)
     client = fields.Text(string="Client",help="Name of the client.")
     waiter = fields.Text(string="Waiter",help="Name of the waiter.",requiered=True)
-    products = fields.Many2many("bar_app.product_model", string="Products", requiered=True, relation="product2order")
+    lines = fields.One2many("bar_app.line_model", "cuantity" , string="Products", requiered=True)
     tprice = fields.Float(string="Total price",help="Total price of the order.")
     
     @api.constrains("table")

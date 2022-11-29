@@ -18,9 +18,13 @@
 
                             <field name="waiter"/>
 
-                            <field name="products">
+                            <field name="lines">
                                 <tree>
-                                    <field name="name"/>
+                                    <field name="order"/>
+
+                                    <field name="cuantity"/>
+
+                                    <field name="product"/>
 
                                     <field name="description"/>
                                 </tree>
@@ -44,11 +48,13 @@
 
                     <field name="table"/>
 
-                    <field name="numclients"/>
+                            <field name="numclients"/>
 
-                    <field name="client"/>
+                            <field name="client"/>
 
-                    <field name="waiter"/>
+                            <field name="waiter"/>
+
+                            <field name="lines"/>
 
                     <field name="tprice"/>
 
