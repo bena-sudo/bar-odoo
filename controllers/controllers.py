@@ -21,7 +21,7 @@ class BarApp(http.Controller):
 
     @http.route('/bar_app/ingredient', auth='public',type="http")
     def ingredient(self, **kw):
-        tdata = http.request.env["bar_app.product_model"].sudo().search_read([],["name","product","description"])
+        tdata = http.request.env["bar_app.ingredient_model"].sudo().search_read([],["name","products","description"])
         data = {"status":200,
                 "data":tdata }
         return http.Response(json.dumps(data).encode("utf8"),mimetype="application/json")

@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bar_app.order_line_form">
+            <field name="name">Tree Line</field>
+
+            <field name="model">bar_app.line_model</field>
+
+            <field name="arch" type="xml">
+
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="order"/>
+
+                            <field name="cuantity"/>
+
+                            <field name="product"/>
+
+                            <field name="description"/>
+
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bar_app.order_line_list">
+            <field name="name">Line List</field>
+
+            <field name="model">bar_app.line_model</field>
+
+            <field name="arch" type="xml">
+
+                <tree>
+
+                    <field name="order"/>
+
+                    <field name="cuantity"/>
+
+                    <field name="product"/>
+
+                    <field name="description"/>
+
+                </tree>
+
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="bar_app.action_window_line_list">
+            <field name="name">Tree Line</field>
+            <field name="res_model">bar_app.line_model</field>
+            <field name="view_mode">tree,form</field>
+          </record>
+    </data>
+</odoo>
