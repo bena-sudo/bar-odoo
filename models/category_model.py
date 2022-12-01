@@ -7,6 +7,7 @@ class CategoryModel(models.Model):
     _sql_constraints = [('bar_app_categoryname_uniq','UNIQUE (name)','There cannot be two catgoris with the same name!!')]
     
     name = fields.Char(string="Category",help="Name of the category",requiered=True,index=True)
+    photo = fields.Binary(string="Foto",help="Password of the student")
     product = fields.One2many("bar_app.product_model", "category", string="Product")
     description = fields.Html(string="Description",help="Description of the category")
 

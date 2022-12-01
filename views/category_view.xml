@@ -10,11 +10,14 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
 
-                            <field name="description"/>
+                            <field name="name" />
 
-                            <field name="product"/>
+                            <field name="photo" widget="image" />
+
+                            <field name="description" />
+
+                            <field name="product" />
 
                         </group>
                     </sheet>
@@ -31,18 +34,41 @@
 
                 <tree>
 
-                    <field name="name"/>
+                    <field name="name" />
 
-                    <field name="description"/>
+                    <field name="description" />
 
                 </tree>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bar_app.category_model_kanban">
+            <field name="name">Tree Category</field>
+
+            <field name="model">bar_app.category_model</field>
+
+            <field name="arch" type="xml">
+
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_product_vignette">
+                                <field name="photo" widget="image"/>
+                                <div class="oe_product_desc">
+                                    <field name="name" />
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+
+                </kanban>
 
             </field>
         </record>
         <record model="ir.actions.act_window" id="bar_app.action_window_category_list">
             <field name="name">Tree Category</field>
             <field name="res_model">bar_app.category_model</field>
-            <field name="view_mode">tree,form</field>
-          </record>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
     </data>
 </odoo>
