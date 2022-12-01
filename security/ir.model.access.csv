@@ -5,3 +5,4 @@ access_bar_app_product_app,bar_app.product_model,model_bar_app_product_model,bas
 access_bar_app_ingredient_app,bar_app.ingredient_model,model_bar_app_ingredient_model,base.group_user,1,1,1,1
 access_bar_app_order_app,bar_app.order_model,model_bar_app_order_model,base.group_user,1,1,1,1
 access_bar_app_line_app,bar_app.line_model,model_bar_app_line_model,base.group_user,1,1,1,1
+access_bar_app_table_app,bar_app.table_model,model_bar_app_table_model,base.group_user,1,1,1,1

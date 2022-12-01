@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bar_app.table_model_form">
+            <field name="name">Tree Table</field>
+
+            <field name="model">bar_app.table_model</field>
+
+            <field name="arch" type="xml">
+
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="table" />
+
+                            <field name="description" />
+
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bar_app.table_model_list">
+            <field name="name">Table List</field>
+
+            <field name="model">bar_app.table_model</field>
+
+            <field name="arch" type="xml">
+
+                <tree>
+
+                    <field name="table" />
+
+                    <field name="description" />
+
+                </tree>
+
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="bar_app.action_window_table_list">
+            <field name="name">Tree Table</field>
+            <field name="res_model">bar_app.table_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

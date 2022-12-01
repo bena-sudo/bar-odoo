@@ -10,27 +10,29 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="table"/>
+                            <field name="table" />
 
-                            <field name="numclients"/>
+                            <field name="creationdate" />
 
-                            <field name="client"/>
+                            <field name="numclients" />
 
-                            <field name="waiter"/>
+                            <field name="client" />
+
+                            <field name="waiter" />
 
                             <field name="lines">
                                 <tree>
-                                    <field name="order"/>
+                                    <field name="order" />
 
-                                    <field name="cuantity"/>
+                                    <field name="cuantity" />
 
-                                    <field name="product"/>
+                                    <field name="product" />
 
-                                    <field name="description"/>
+                                    <field name="description" />
                                 </tree>
                             </field>
 
-                            <field name="tprice"/>
+                            <field name="tprice" />
                         </group>
                     </sheet>
                 </form>
@@ -46,17 +48,17 @@
 
                 <tree>
 
-                    <field name="table"/>
+                    <field name="table" />
 
-                            <field name="numclients"/>
+                    <field name="numclients" />
 
-                            <field name="client"/>
+                    <field name="client" />
 
-                            <field name="waiter"/>
+                    <field name="waiter" />
 
-                            <field name="lines"/>
+                    <field name="creationdate" />
 
-                    <field name="tprice"/>
+                    <field name="tprice" />
 
                 </tree>
 
@@ -66,6 +68,6 @@
             <field name="name">Tree Order</field>
             <field name="res_model">bar_app.order_model</field>
             <field name="view_mode">tree,form</field>
-          </record>
+        </record>
     </data>
 </odoo>
