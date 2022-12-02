@@ -6,19 +6,17 @@
             <field name="model">bar_app.table_model</field>
 
             <field name="arch" type="xml">
-
                 <form>
                     <sheet>
                         <group>
-
                             <field name="table" />
-
+                            <field name="numclients" />
+                            <field name="client" />
+                            <field name="waiter" />
                             <field name="description" />
-
                         </group>
                     </sheet>
                 </form>
-
             </field>
         </record>
         <record model="ir.ui.view" id="bar_app.table_model_list">
@@ -27,15 +25,13 @@
             <field name="model">bar_app.table_model</field>
 
             <field name="arch" type="xml">
-
                 <tree>
-
                     <field name="table" />
-
+                    <field name="numclients" />
+                    <field name="client" />
+                    <field name="waiter" />
                     <field name="description" />
-
                 </tree>
-
             </field>
         </record>
         <record model="ir.actions.act_window" id="bar_app.action_window_table_list">

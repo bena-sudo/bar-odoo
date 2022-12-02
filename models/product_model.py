@@ -7,6 +7,7 @@ class ProductModel(models.Model):
     _sql_constraints = [('bar_app_productname_uniq','UNIQUE (name)','There cannot be two products with the same name!!')]
 
     name = fields.Text(string="Product name",help="Name of the product",requiered=True,index=True)
+    photo = fields.Binary(string="Foto",help="Password of the student")
     currency_id = fields.Many2one('res.currency', string="Currency", default=lambda self:self.env.user.company_id.currency_id)
     price = fields.Monetary(string="Price",help="Price of the product")
     category = fields.Many2one("bar_app.category_model", string="Category")

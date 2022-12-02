@@ -6,31 +6,24 @@
             <field name="model">bar_app.product_model</field>
 
             <field name="arch" type="xml">
-
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
-
-                            <field name="currency_id" invisible="True"/>
-
-                            <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-
-                            <field name="category"/>
-
-                            <field name="description"/>
-
+                            <field name="name" />
+                            <field name="photo" widget="image" />
+                            <field name="currency_id" invisible="True" />
+                            <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="category" />
+                            <field name="description" />
                             <field name="ingredients">
                                 <tree>
-                                    <field name="name"/>
-
-                                    <field name="description"/>
+                                    <field name="name" />
+                                    <field name="description" />
                                 </tree>
                             </field>
                         </group>
                     </sheet>
                 </form>
-
             </field>
         </record>
         <record model="ir.ui.view" id="bar_app.product_model_list">
@@ -39,27 +32,59 @@
             <field name="model">bar_app.product_model</field>
 
             <field name="arch" type="xml">
-
                 <tree>
-
-                    <field name="name"/>
-
-                    <field name="category"/>
-
-                    <field name="description"/>
-
-                    <field name="currency_id" invisible="True"/>
-
-                    <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-
+                    <field name="name" />
+                    <field name="category" />
+                    <field name="description" />
+                    <field name="currency_id" invisible="True" />
+                    <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" />
                 </tree>
-
             </field>
         </record>
+
+        <record model="ir.ui.view" id="bar_app.product_model_kanban">
+            <field name="name">Kanban Prdouct</field>
+
+            <field name="model">bar_app.product_model</field>
+
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="photo" />
+                    <field name="price" />
+                    <field name="category" />
+                    <field name="description" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <field name="photo" nolabel="1" widget="image" class="oe_right oe_avatar" />
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name" class="oe_inline" />
+                                    </strong>
+                                    <div t-if="record.price.value">
+                                        <t t-esc="record.price.value" />
+                                    </div>
+                                    <div t-if="record.category.value">
+                                        <t t-esc="record.category.value" />
+                                    </div>
+                                    <div t-if="record.description.value">
+                                        <t t-esc="record.description.value" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="bar_app.action_window_product_list">
             <field name="name">Tree Product</field>
             <field name="res_model">bar_app.product_model</field>
-            <field name="view_mode">tree,form</field>
-          </record>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
     </data>
 </odoo>
