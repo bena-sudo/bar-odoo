@@ -38,10 +38,24 @@
                 </tree>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="bar_app.order_model_calendar">
+            <field name="name">Order Calendar</field>
+
+            <field name="model">bar_app.order_model</field>
+
+            <field name="arch" type="xml">
+                <calendar date_start="creationdate" quick_add="false" color="table" mode="month">
+                    <field name="table"/>
+                    <field name="tprice" />
+                </calendar>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="bar_app.action_window_order_list">
             <field name="name">Tree Order</field>
             <field name="res_model">bar_app.order_model</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">calendar,tree,form</field>
         </record>
     </data>
 </odoo>

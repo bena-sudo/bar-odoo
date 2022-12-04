@@ -9,10 +9,10 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="order"/>
-                            <field name="cuantity"/>
-                            <field name="product"/>
-                            <field name="description"/>
+                            <field name="order" />
+                            <field name="cuantity" />
+                            <field name="product" />
+                            <field name="description" />
                         </group>
                     </sheet>
                 </form>
@@ -25,10 +25,10 @@
 
             <field name="arch" type="xml">
                 <tree>
-                    <field name="order"/>
-                    <field name="cuantity"/>
-                    <field name="product"/>
-                    <field name="description"/>
+                    <field name="order" />
+                    <field name="cuantity" />
+                    <field name="product" />
+                    <field name="description" />
                 </tree>
             </field>
         </record>
@@ -37,6 +37,6 @@
             <field name="name">Tree Line</field>
             <field name="res_model">bar_app.line_model</field>
             <field name="view_mode">tree,form</field>
-          </record>
+        </record>
     </data>
 </odoo>
