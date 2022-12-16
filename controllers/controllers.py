@@ -6,13 +6,15 @@ from odoo.http import json, request
 class BarApp(http.Controller):
 # CATEGORY
     # GET CATEGORYS
-    @http.route('/bar_app/getAllCategorys', auth='public', type="http")
-    def category(self, **kw):
-        tdata = http.request.env["bar_app.category_model"].sudo(
-        ).search_read([], ["name", "product", "description"])
-        data = {"status": 200,
-                "data": tdata}
-        return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
+    @http.route(['/bar_app/getAllCategorys','/bar_app/getCategory/<int:id>'],auth='public', type='http')
+    def getCategory(self,id=None, **kw):
+        if id:
+            domain = [("id","=",id)]
+        else:
+            domain=[]
+        taskdata = http.request.env["bar_app.category_model"].sudo().search_read(domain,["name","product","description"])
+        data={ "status":200,"data":taskdata }
+        return http.Response(json.dumps(data).encode("utf8"),mimetype="application/json")
 
     # ADD CATEGORY
     @http.route('/bar_app/addCategory', auth='public', type="json", method="POST")
@@ -26,19 +28,6 @@ class BarApp(http.Controller):
         except Exception as e:
             data = {"status": 404, "error": e}
         return data
-
-    # GET CATEGORY BY ID
-    @http.route('/bar_app/getCategory/<int:id>', auth='public', type="http")
-    def getCategoryById(self, id=None, **kw):
-        if id:
-            domain = [{"id", "=", id}]
-        else:
-            domain = []
-        taskdata = http.request.env["bar_app.category_model"].sudo().search_read(
-            domain, ["name", "product", "description"])
-        data = {"status": 200,
-                "data": taskdata}
-        return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
 
     # UPDATE CATEGORY
     @http.route('/bar_app/updateCategory', auth="public", type="json", method="PUT")
@@ -64,8 +53,7 @@ class BarApp(http.Controller):
         response = request.jsonrequest
         domain = [("id", "=", response["id"])]
         try:
-            x = http.request.env["bar_app.category_model"].sudo().search(
-                domain).unlink()
+            x = http.request.env["bar_app.category_model"].sudo().search(domain).unlink()
             data = {"status": 200, "result": "Category deleted"}
             return data
         except Exception as e:
@@ -74,12 +62,14 @@ class BarApp(http.Controller):
 
 # INGREDEINT
     # GET INGREDIENTS
-    @http.route('/bar_app/getAllIngredients', auth='public', type="http")
-    def ingredient(self, **kw):
-        tdata = http.request.env["bar_app.ingredient_model"].sudo(
-        ).search_read([], ["name", "products", "description"])
-        data = {"status": 200,
-                "data": tdata}
+    @http.route(['/bar_app/getAllIngredients','/bar_app/getIngredient/<int:id>'], auth='public', type="http")
+    def getIngredient(self, id=None, **kw):
+        if id:
+            domain = [{"id", "=", id}]
+        else:
+            domain = []
+        taskdata = http.request.env["bar_app.ingredient_model"].sudo().search_read(domain, ["name", "products", "description"])
+        data = {"status": 200,"data": taskdata}
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
 
 	# ADD INGREDIENT
@@ -96,17 +86,7 @@ class BarApp(http.Controller):
         return data
 
 	# GET INGREDIENT BY ID
-    @http.route('/bar_app/getIngredient/<int:id>', auth='public', type="http")
-    def getIngredientById(self, id=None, **kw):
-        if id:
-            domain = [{"id", "=", id}]
-        else:
-            domain = []
-        taskdata = http.request.env["bar_app.ingredient_model"].sudo().search_read(
-            domain, ["name", "products", "description"])
-        data = {"status": 200,
-                "data": taskdata}
-        return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
+    
 
 	# UPDATE INGREDIENT
     @http.route('/bar_app/updateIngredient', auth="public", type="json", method="PUT")
@@ -142,10 +122,54 @@ class BarApp(http.Controller):
 
 # PRODUCT
     # GET PRODUCTS
-    @http.route('/bar_app/getAllProducts', auth='public', type="http")
-    def product(self, **kw):
-        tdata = http.request.env["bar_app.product_model"].sudo().search_read(
-            [], ["name", "price", "category", "ingredients", "description"])
-        data = {"status": 200,
-                "data": tdata}
-        return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
+    @http.route(['/bar_app/getAllProducts','/bar_app/getProduct/<int:id>'],auth='public', type='http')
+    def getProduct(self,id=None, **kw):
+        if id:
+            domain = [("id","=",id)]
+        else:
+            domain=[]
+        taskdata = http.request.env["bar_app.product_model"].sudo().search_read(domain,["name","currency_id","price","category","ingredients","description"])
+        data={ "status":200,"data":taskdata }
+        return http.Response(json.dumps(data).encode("utf8"),mimetype="application/json")
+
+    # ADD PRODUCT
+    @http.route('/bar_app/addProduct', auth='public', type="json", method="POST")
+    def addProduct(self, **kw):
+        response = request.jsonrequest
+        try:
+            result = http.request.env["bar_app.product_model"].sudo().create(response)
+            data = {"status": 201, "id": result.id}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
+        return data
+
+    # UPDATE PRODUCT
+    @http.route('/bar_app/updateProduct', auth="public", type="json", method="PUT")
+    def updateProduct(self, **kw):
+        response = request.jsonrequest
+        domain = [("id", "=", response["id"])]
+        try:
+            x = http.request.env["bar_app.product_model"].sudo().search(domain)
+            updated = x.sudo().write(response)
+            if (updated):
+                data = {"status": 200, "result": x.id}
+            else:
+                data = {"status": 400, "result": "Product not modified"}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
+            return data
+
+    # DELETE PRODUCT
+    @http.route('/bar_app/deleteProduct', auth="public", type="json", method="DELETE")
+    def deleteProduct(self, **kw):
+        response = request.jsonrequest
+        domain = [("id", "=", response["id"])]
+        try:
+            x = http.request.env["bar_app.product_model"].sudo().search(domain).unlink()
+            data = {"status": 200, "result": "Product deleted"}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
+            return data
