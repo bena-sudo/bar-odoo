@@ -10,6 +10,8 @@
                     <sheet>
                         <group>
                             <field name="name" />
+                            <field name="complete_name" />
+                            <field name="parent_id" />
                             <field name="photo" widget="image" />
                             <field name="description" />
                             <field name="product">

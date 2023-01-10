@@ -9,7 +9,7 @@ class BarApp(http.Controller):
     @http.route(['/bar_app/getAllCategorys','/bar_app/getCategory/<int:id>'],auth='public', type='http')
     def getCategory(self,id=None, **kw):
         if id:
-            domain = [("id","=",id)]
+            domain = [("id", "=", id)]
         else:
             domain=[]
         taskdata = http.request.env["bar_app.category_model"].sudo().search_read(domain,["name","product","description"])
@@ -65,7 +65,7 @@ class BarApp(http.Controller):
     @http.route(['/bar_app/getAllIngredients','/bar_app/getIngredient/<int:id>'], auth='public', type="http")
     def getIngredient(self, id=None, **kw):
         if id:
-            domain = [{"id", "=", id}]
+            domain = [("id", "=", id)]
         else:
             domain = []
         taskdata = http.request.env["bar_app.ingredient_model"].sudo().search_read(domain, ["name", "products", "description"])
@@ -84,9 +84,6 @@ class BarApp(http.Controller):
         except Exception as e:
             data = {"status": 404, "error": e}
         return data
-
-	# GET INGREDIENT BY ID
-    
 
 	# UPDATE INGREDIENT
     @http.route('/bar_app/updateIngredient', auth="public", type="json", method="PUT")
@@ -122,10 +119,10 @@ class BarApp(http.Controller):
 
 # PRODUCT
     # GET PRODUCTS
-    @http.route(['/bar_app/getAllProducts','/bar_app/getProduct/<int:id>'],auth='public', type='http')
-    def getProduct(self,id=None, **kw):
+    @http.route(['/bar_app/getAllProducts','/bar_app/getProduct/<int:idprod>'],auth='public', type='http')
+    def getProduct(self,idprod=None, **kw):
         if id:
-            domain = [("id","=",id)]
+            domain = [("id","=",idprod)]
         else:
             domain=[]
         taskdata = http.request.env["bar_app.product_model"].sudo().search_read(domain,["name","currency_id","price","category","ingredients","description"])
