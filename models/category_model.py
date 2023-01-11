@@ -14,7 +14,6 @@ class CategoryModel(models.Model):
     product = fields.One2many("bar_app.product_model", "category", string="Products")
     description = fields.Html(string="Description",help="Description of the category")
     parent_id = fields.Many2one("bar_app.category_model", string="Category parent", index=True, ondelete="cascade")
-    child_ids = fields.One2many("bar_app.category_model", "parent_id", string="Category childs")
 
     @api.constrains("name")
     def _checkLength(self):

@@ -46,7 +46,7 @@
 
             <field name="arch" type="xml">
                 <calendar date_start="creationdate" quick_add="false" color="table" mode="month">
-                    <field name="table"/>
+                    <field name="table" />
                     <field name="tprice" />
                 </calendar>
             </field>
