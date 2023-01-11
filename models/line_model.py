@@ -6,5 +6,5 @@ class LineModel(models.Model):
 
     order = fields.Many2one("bar_app.order_model",string="Order",requiered=True)
     cuantity = fields.Integer(string="Cuantity",help="Cuantity of the product.")
-    product = fields.Many2one("bar_app.product_model", string="Products", requiered=True)
+    product = fields.Many2one("bar_app.product_model", string="Product", requiered=True)
     description = fields.Html(string="Description",help="Description of the product")

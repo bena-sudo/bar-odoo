@@ -11,7 +11,7 @@ class CategoryModel(models.Model):
     name = fields.Char(string="Category",help="Name of the category",requiered=True,index=True)
     complete_name = fields.Char(string="Complete name",compute="_complete_name", recursive=True,store=True)
     photo = fields.Binary(string="Foto")
-    product = fields.One2many("bar_app.product_model", "category", string="Products")
+    product = fields.Many2many("bar_app.product_model", string="Product", relation="product2category")
     description = fields.Html(string="Description",help="Description of the category")
     parent_id = fields.Many2one("bar_app.category_model", string="Category parent", index=True, ondelete="cascade")
 
