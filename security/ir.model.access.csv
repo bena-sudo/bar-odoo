@@ -7,3 +7,4 @@ access_bar_app_order_app,bar_app.order_model,model_bar_app_order_model,base.grou
 access_bar_app_line_app,bar_app.line_model,model_bar_app_line_model,base.group_user,1,1,1,1
 access_bar_app_table_app,bar_app.table_model,model_bar_app_table_model,base.group_user,1,1,1,1
 access_bar_app_invoice_app,bar_app.invoice_model,model_bar_app_invoice_model,base.group_user,1,1,1,1
+access_bar_app_line_invoice_app,bar_app.line_invoice_model,model_bar_app_line_invoice_model,base.group_user,1,1,1,1
