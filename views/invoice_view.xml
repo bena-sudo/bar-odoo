@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="confirmInvoice" type="object" string="Confirm" class="oe_highlight" confirm="Are you sure you want to finish the invoice? It will close it!" attrs="{'invisible': [('state','=', 'C')]}"></button>
+                        <button name="confirmInvoice" type="object" string="Confirm" class="oe_highlight" attrs="{'invisible': [('state','=', 'C')]}"></button>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
