@@ -6,25 +6,31 @@ class InvoiceModel(models.Model):
     _name = 'bar_app.invoice_model'
     _description = 'This is a order model.'
 
-    ref = fields.Integer(String="Ref",help="Number of the invoise",requiered=True,index=True)
-    creationdate = fields.Datetime(srting="Date",help="Date",requiered=True,default=lambda self: datetime.now())
+    reference = fields.Integer(string="Invoice number",index=True,default = lambda self : self._generateRef())
+    client = fields.Char(string="Client",help="Client name",requiered=True)
+    creationdate = fields.Datetime(srting="Date",help="Date",requiered=True,redonly=1,default=lambda self: datetime.today())
     lines = fields.One2many("bar_app.line_model", "cuantity" , string="Lines", requiered=True)
     bprice = fields.Float(string="Base price",compute="_getBasePrice",store=True)
-    vat = fields.Integer(string="VAT",help="IVA")
+    vat = fields.Selection([ ('0','0'),('4','4'),('11','11'),('21','21'),],string='VAT',help="VAT number % to add to base price")
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
-    
-    @api.constrains("numclients")
-    def _checkValue(self):
-        if self.numclients <= 0:
-            raise ValidationError("The value of the number client order must be less than 0.")
+    state = fields.Boolean(String="state",default="D")
 
-    @api.depends("lines")
+    @api.depends('lines')
     def _getBasePrice(self):
         self.bprice = 0
         for line in self.lines:
             self.bprice += line.cuantity * line.product.price
 
-    @api.depends("bprice","vat")
+    @api.depends('bprice','vat')
     def _getTotalPrice(self):
-        self.tprice = self.bprice * (self.vat/100) + self.bprice
+        self.tprice = self.bprice * (int(self.vat)/100) + self.bprice
         
+    def confirmInvoice(self):    
+        self.state = 'C'
+
+    def _generateRef(self):
+        ids = self.env["bar_app.invoice_model"].sudo().search_read([],["reference"])
+        if len(ids) > 0:
+            id = ids[-1]
+            return int(id['reference'])+1    
+        return 1

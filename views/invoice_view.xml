@@ -7,21 +7,24 @@
 
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="confirmInvoice" type="object" string="Confirm" class="oe_highlight" confirm="Are you sure you want to finish the invoice? It will close it!" attrs="{'invisible': [('state','=', 'C')]}"></button>
+                        <field name="state" widget="statusbar"/>
+                    </header>
                     <sheet>
                         <group>
-                            <field name="ref" />
-                            <field name="creationdate" />
-                            <field name="lines">
+                            <field name="reference" readonly='True'/>
+                            <field name="client" attrs="{'readonly': [('state','=', 'C')]}"/>
+                            <field name="creationdate" readonly='True'/>
+                            <field name="lines" attrs="{'readonly': [('state','=', 'C')]}">
                                 <tree>
-                                    <field name="order" />
                                     <field name="cuantity" />
                                     <field name="product" />
-                                    <field name="description" />
                                 </tree>
                             </field>
-                            <field name="bprice" />
-                            <field name="vat" />
-                            <field name="tprice" />
+                            <field name="bprice" readonly='True'/>
+                            <field name="vat" attrs="{'readonly': [('state','=', 'C')]}" />
+                            <field name="tprice" readonly='True'/>
                         </group>
                     </sheet>
                 </form>
@@ -34,7 +37,7 @@
 
             <field name="arch" type="xml">
                 <tree>
-                    <field name="ref" />
+                    <field name="reference" />
                     <field name="creationdate" />
                     <field name="tprice" />
                 </tree>
