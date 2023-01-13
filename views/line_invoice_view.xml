@@ -9,7 +9,6 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="lineId" />
                             <field name="cuantity" />
                             <field name="product" />
                             <field name="description" />

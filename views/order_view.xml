@@ -13,7 +13,6 @@
                             <field name="creationdate" />
                             <field name="lines">
                                 <tree>
-                                    <field name="order" />
                                     <field name="cuantity" />
                                     <field name="product" />
                                     <field name="description" />

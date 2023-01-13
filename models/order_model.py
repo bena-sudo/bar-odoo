@@ -9,7 +9,7 @@ class OrderModel(models.Model):
     order = fields.Integer(String="Reference",help="Number of the order",requiered=True,index=True)
     table = fields.Many2one("bar_app.table_model", string="Table")
     creationdate = fields.Datetime(srting="Date",help="Date",requiered=True,default=lambda self: datetime.now())
-    lines = fields.One2many("bar_app.line_model", "cuantity" , string="Products", requiered=True)
+    lines = fields.One2many("bar_app.line_model", "order" , string="Products", requiered=True)
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
     
     @api.constrains("numclients")

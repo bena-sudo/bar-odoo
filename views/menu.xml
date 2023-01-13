@@ -18,5 +18,6 @@
         <menuitem name="List Line" id="bar_app.menu_line_list" parent="bar_app.menu_order" action="bar_app.action_window_line_list" />
         <menuitem name="List Table" id="bar_app.menu_table_list" parent="bar_app.menu_table" action="bar_app.action_window_table_list" />
         <menuitem name="List Invoice" id="bar_app.menu_invoice_list" parent="bar_app.menu_invoice" action="bar_app.action_window_invoice_list" />
+        <menuitem name="List Line Invoice" id="bar_app.menu_line_invoice_list" parent="bar_app.menu_invoice" action="bar_app.action_window_line_invoice_list" />
     </data>
 </odoo>
