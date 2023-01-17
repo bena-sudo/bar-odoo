@@ -5,8 +5,9 @@ from datetime import datetime
 class OrderModel(models.Model):
     _name = 'bar_app.order_model'
     _description = 'This is a order model.'
+    _rec_name = 'order'
 
-    order = fields.Integer(String="Reference",help="Number of the order",requiered=True,index=True)
+    order = fields.Integer(string="Order number",index=True,default = lambda self : self._generateOrder())
     table = fields.Many2one("bar_app.table_model", string="Table")
     creationdate = fields.Date(srting="Date",help="Date",requiered=True,default=lambda self: datetime.now())
     lines = fields.One2many("bar_app.line_model", "order" , string="Products", requiered=True)
@@ -22,3 +23,10 @@ class OrderModel(models.Model):
         self.tprice = 0
         for line in self.lines:
             self.tprice += line.cuantity * line.product.price
+
+    def _generateOrder(self):
+        ids = self.env["bar_app.order_model"].sudo().search_read([],["order"])
+        if len(ids) > 0:
+            id = ids[-1]
+            return int(id['order'])+1    
+        return 1

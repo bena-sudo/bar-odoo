@@ -9,6 +9,7 @@
                 <form>
                     <sheet>
                         <group>
+                            <field name="order" />
                             <field name="table" />
                             <field name="creationdate" />
                             <field name="lines">
