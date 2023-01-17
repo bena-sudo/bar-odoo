@@ -4,6 +4,7 @@ from odoo.exceptions import ValidationError
 class TableModel(models.Model):
     _name = 'bar_app.table_model'
     _description = 'This is a table model.'
+    _rec_name = 'table'
 
     table = fields.Text(string="Table",help="Number of the table",requiered=True,index=True)
     numclients = fields.Integer(string="Number clients",help="Numbers of the clients.",requiered=True)
