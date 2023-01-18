@@ -179,7 +179,9 @@ class BarApp(http.Controller):
             domain = [("id", "=", id)]
         else:
             domain = []
-        taskdata = http.request.env["bar_app.invoice_model"].sudo().search_read(domain, ["reference", "client","lines","bprice","vat","tprice","state"])
+        taskdata = http.request.env["bar_app.invoice_model"].sudo().search_read(domain, ["reference","creationdate","client","lines","bprice","vat","tprice","state"])
+        for rec in taskdata:
+            rec["creationdate"] = rec["creationdate"].isoformat()
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
 
