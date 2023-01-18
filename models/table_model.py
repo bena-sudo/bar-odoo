@@ -7,7 +7,7 @@ class TableModel(models.Model):
     _rec_name = 'table'
 
     table = fields.Text(string="Table",help="Number of the table",requiered=True,index=True)
-    numclients = fields.Integer(string="Number clients",help="Numbers of the clients.",requiered=True)
+    numclients = fields.Integer(string="Number clients",help="Numbers of the clients.",default=1,requiered=True)
     client = fields.Text(string="Client",help="Name of the client.",requiered=True)
     waiter = fields.Text(string="Waiter",help="Name of the waiter.",requiered=True)
     orders = fields.One2many("bar_app.order_model", "table" , string="Orders", requiered=True)

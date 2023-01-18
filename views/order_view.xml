@@ -7,19 +7,23 @@
 
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="confirmInvoice" type="object" string="Confirm" class="oe_highlight" attrs="{'invisible': [('state','=', 'C')]}"></button>
+                        <field name="state" widget="statusbar"/>
+                    </header>
                     <sheet>
                         <group>
-                            <field name="order" />
-                            <field name="table" />
-                            <field name="creationdate" />
-                            <field name="lines">
+                            <field name="order" readonly='True'/>
+                            <field name="table" attrs="{'readonly': [('state','=', 'C')]}"/>
+                            <field name="creationdate" readonly='True'/>
+                            <field name="lines" attrs="{'readonly': [('state','=', 'C')]}">
                                 <tree>
                                     <field name="cuantity" />
                                     <field name="product" />
                                     <field name="description" />
                                 </tree>
                             </field>
-                            <field name="tprice" />
+                            <field name="tprice" readonly='True'/>
                         </group>
                     </sheet>
                 </form>
@@ -32,6 +36,7 @@
 
             <field name="arch" type="xml">
                 <tree>
+                    <field name="order" />
                     <field name="table" />
                     <field name="creationdate" />
                     <field name="tprice" />
@@ -46,7 +51,7 @@
 
             <field name="arch" type="xml">
                 <calendar date_start="creationdate" quick_add="false" color="table" mode="month">
-                    <field name="table" />
+                    <field name="order" />
                     <field name="tprice" />
                 </calendar>
             </field>

@@ -12,7 +12,8 @@ class OrderModel(models.Model):
     creationdate = fields.Date(srting="Date",help="Date",requiered=True,default=lambda self: datetime.now())
     lines = fields.One2many("bar_app.line_model", "order" , string="Products", requiered=True)
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
-    
+    state = fields.Char(String="state",default="D")
+
     @api.constrains("numclients")
     def _checkValue(self):
         if self.numclients <= 0:
@@ -30,3 +31,6 @@ class OrderModel(models.Model):
             id = ids[-1]
             return int(id['order'])+1    
         return 1
+
+    def confirmInvoice(self):    
+        self.state = 'C'
