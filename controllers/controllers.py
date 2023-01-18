@@ -188,11 +188,13 @@ class BarApp(http.Controller):
 # ORDER
     # GET ORDER
     @http.route(['/bar_app/getAllOrders','/bar_app/getOrder/<int:id>'], auth='public', type="http")
-    def getInvoice(self, id=None, **kw):
+    def getOrder(self, id=None, **kw):
         if id:
             domain = [("id", "=", id)]
         else:
             domain = []
-        taskdata = http.request.env["bar_app.order_model"].sudo().search_read(domain, ["order", "table","lines","tprice"])
+        taskdata = http.request.env["bar_app.order_model"].sudo().search_read(domain, ["order","creationdate","table","lines","tprice"])
+        for rec in taskdata:
+            rec["creationdate"] = rec["creationdate"].isoformat()
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
