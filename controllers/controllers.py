@@ -198,3 +198,11 @@ class BarApp(http.Controller):
             rec["creationdate"] = rec["creationdate"].isoformat()
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
+
+    # CONFIRM ORDER
+    @http.route(['/bar_app/confirmInvoice/<int:id>'], auth='public', type="http")
+    def confirmInvoice(self, id=None, **kw):
+        order = http.request.env["bar_app.order_model"].sudo().search([("id", "=", id)])
+        order.confirmInvoice()
+        data = { "status":200 }
+        return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
