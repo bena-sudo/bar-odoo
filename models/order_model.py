@@ -34,4 +34,15 @@ class OrderModel(models.Model):
 
     def confirmInvoice(self):    
         self.state = 'C'
-        self.request.env["bar_app.invoice_model"].sudo().create()
+        invoice = {}
+        invoice["client"] = self.table.client
+        invoice["creationdate"] = self.creationdate
+        inv = self.env["bar_app.invoice_model"].sudo().create(invoice)
+        
+        for l in self.lines:
+            line = {}
+            line["lineId"] = inv.id
+            line["cuantity"] = l.cuantity
+            line["product"] = l.product.id
+            line["description"] = l.description
+            self.env["bar_app.line_invoice_model"].sudo().create(line)
