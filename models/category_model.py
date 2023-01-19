@@ -8,7 +8,7 @@ class CategoryModel(models.Model):
     _order = 'complete_name'
     _sql_constraints = [('bar_app_categoryname_uniq','UNIQUE (name)','There cannot be two catgoris with the same name!!')]
     
-    name = fields.Char(string="Category",help="Name of the category",requiered=True,index=True)
+    name = fields.Char(string="Category",help="Name of the category",required=True,index=True)
     complete_name = fields.Char(string="Complete name",compute="_complete_name", recursive=True,store=True)
     photo = fields.Binary(string="Foto")
     product = fields.Many2many("bar_app.product_model", string="Product", relation="product2category")

@@ -8,9 +8,9 @@ class InvoiceModel(models.Model):
     _rec_name = 'reference'
 
     reference = fields.Integer(string="Invoice number",index=True,default = lambda self : self._generateRef())
-    client = fields.Char(string="Client",help="Client name",requiered=True)
-    creationdate = fields.Date(srting="Date",help="Date",requiered=True,redonly=1,default=lambda self: datetime.today())
-    lines = fields.One2many("bar_app.line_invoice_model", "lineId" , string="Lines", requiered=True)
+    client = fields.Char(string="Client",help="Client name",required=True)
+    creationdate = fields.Date(srting="Date",help="Date",redonly=1,default=lambda self: datetime.today())
+    lines = fields.One2many("bar_app.line_invoice_model", "lineId" , string="Lines")
     bprice = fields.Float(string="Base price",compute="_getBasePrice",store=True)
     vat = fields.Selection([ ('0','0'),('4','4'),('10','10'),('21','21'),],string='VAT',help="VAT number % to add to base price",default="10")
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)

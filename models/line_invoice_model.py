@@ -5,6 +5,6 @@ class LineInvoiceModel(models.Model):
     _description = 'This is a line invoice model.'
 
     lineId = fields.Many2one("bar_app.invoice_model", string="Reference")
-    cuantity = fields.Integer(string="Cuantity",help="Cuantity of the product.",default=1)
-    product = fields.Many2one("bar_app.product_model", string="Product")
+    cuantity = fields.Integer(string="Cuantity",help="Cuantity of the product.",default=1,required=True)
+    product = fields.Many2one("bar_app.product_model", string="Product",required=True)
     description = fields.Html(string="Description",help="Description of the product")

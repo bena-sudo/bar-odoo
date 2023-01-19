@@ -8,9 +8,9 @@ class OrderModel(models.Model):
     _rec_name = 'order'
 
     order = fields.Integer(string="Order number",index=True,default = lambda self : self._generateOrder())
-    table = fields.Many2one("bar_app.table_model", string="Table")
-    creationdate = fields.Date(srting="Date",help="Date",requiered=True,default=lambda self: datetime.now())
-    lines = fields.One2many("bar_app.line_model", "order" , string="Products", requiered=True)
+    table = fields.Many2one("bar_app.table_model", string="Table",required=True)
+    creationdate = fields.Date(srting="Date",help="Date",required=True,default=lambda self: datetime.now())
+    lines = fields.One2many("bar_app.line_model", "order" , string="Products", required=True)
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
     state = fields.Char(String="state",default="D")
 
@@ -34,3 +34,4 @@ class OrderModel(models.Model):
 
     def confirmInvoice(self):    
         self.state = 'C'
+        self.request.env["bar_app.invoice_model"].sudo().create()
