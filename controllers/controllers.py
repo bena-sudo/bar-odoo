@@ -119,8 +119,8 @@ class BarApp(http.Controller):
 
 # PRODUCT
     # GET PRODUCTS
-    @http.route(['/bar_app/getAllProducts','/bar_app/getProduct/<int:idprod>'],auth='public', type='http')
-    def getProduct(self,idprod=None, **kw):
+    @http.route(['/bar_app/getAllProducts','/bar_app/getProduct/<int:id>'],auth='public', type='http')
+    def getProduct(self,id=None, **kw):
         if id:
             domain = [("id","=",idprod)]
         else:
