@@ -122,7 +122,7 @@ class BarApp(http.Controller):
     @http.route(['/bar_app/getAllProducts','/bar_app/getProduct/<int:id>'],auth='public', type='http')
     def getProduct(self,id=None, **kw):
         if id:
-            domain = [("id","=",idprod)]
+            domain = [("id","=",id)]
         else:
             domain=[]
         taskdata = http.request.env["bar_app.product_model"].sudo().search_read(domain,["name","currency_id","price","category","ingredients","description"])
