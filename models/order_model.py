@@ -8,9 +8,9 @@ class OrderModel(models.Model):
     _rec_name = 'order'
 
     order = fields.Integer(string="Order number",index=True,default = lambda self : self._generateOrder())
-    table = fields.Many2one("bar_app.table_model", string="Table",required=True)
-    creationdate = fields.Date(srting="Date",help="Date",required=True,default=lambda self: datetime.now())
-    lines = fields.One2many("bar_app.line_model", "order" , string="Products", required=True)
+    table = fields.Many2one("bar_app.table_model", string="Table")
+    creationdate = fields.Date(srting="Date",help="Date",default=lambda self: datetime.now())
+    lines = fields.One2many("bar_app.line_model", "order" , string="Products")
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
     state = fields.Char(String="state",default="D")
 

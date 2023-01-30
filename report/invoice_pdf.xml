@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <h2 style="text-align:center;">BAR MANOLO</h2>
+                    <h4 style="text-align:center;">Av. la Glorieta, 20, 46260 Alberic, Valencia</h4>
+                    <hr></hr>
+                    <p style="text-align:center">Reference: <t t-esc="doc.reference" /></p>
+                    <hr></hr>
+                    <p style="text-align:center"><t t-esc="doc.creationdate" /></p>
+                    <hr></hr>
+                    <p style="text-align:center"><t t-esc="doc.client" /></p>
+                    <hr></hr>
+                    <p style="align-content: center">
+                    <table style="border: 1px solid black;text-align:center;background-color:  #d5d8dc;width:100%;">
+                        <tr style="border: 1px solid black;">
+                            <th style="border: 1px solid black;">PRODUCT</th>
+                            <th style="border: 1px solid black;">PRICE</th>
+                            <th style="border: 1px solid black;">QUANTITY</th>
+                        </tr>
+                        <t t-foreach="doc.lines" t-as="linea">
+                            <tr style="border: 1px solid black;">
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="linea.product.name" />
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="linea.product.price" />
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="linea.cuantity" />
+                                </td>
+                            </tr>
+                        </t>
+                        <tr style="border: 1px solid black;">
+                            <th style="border: 1px solid black;">Base: <t t-esc="doc.bprice" /></th>
+                            <th style="border: 1px solid black;">VAT: <t t-esc="doc.vat" /></th>
+                            <th style="border: 0px solid black;"> </th>
+                        </tr>
+                    </table>
+                </p>
+                    <hr></hr>
+                    <p style="text-align:center">Total : <t t-esc="doc.tprice" />€</p>
+                   
+                    <hr></hr>
+                    Thank you
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

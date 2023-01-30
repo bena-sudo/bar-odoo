@@ -41,7 +41,7 @@ class BarApp(http.Controller):
             if (updated):
                 data = {"status": 200, "result": x.id}
             else:
-                data = {"status": 400, "result": "Category not modified"}
+                data = {"status": 400, "result": "Ingredient not modified"}
             return data
         except Exception as e:
             data = {"status": 404, "error": e}

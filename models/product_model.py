@@ -12,7 +12,7 @@ class ProductModel(models.Model):
     price = fields.Monetary(string="Price",help="Price of the product",required=True)
     category = fields.Many2many("bar_app.category_model", string="Category", relation="product2category")
     ingredients = fields.Many2many("bar_app.ingredient_model", string="Ingredients", relation="product2ingredient")
-    description = fields.Html(string="Description",help="Description of the product")
+    description = fields.Char(string="Description",help="Description of the product")
 
     @api.constrains("name")
     def _checkLength(self):
