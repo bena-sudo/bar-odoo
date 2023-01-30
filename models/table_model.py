@@ -11,5 +11,5 @@ class TableModel(models.Model):
     client = fields.Text(string="Client",help="Name of the client.",required=True)
     waiter = fields.Text(string="Waiter",help="Name of the waiter.",required=True)
     orders = fields.One2many("bar_app.order_model", "table" , string="Orders", required=True)
-    description = fields.Html(string="Description",help="Description of the table")
+    description = fields.Char(string="Description",help="Description of the table")
     
