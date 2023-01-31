@@ -12,5 +12,5 @@ class IngredientModel(models.Model):
 
     @api.constrains("name")
     def _checkLength(self):
-        if len(self.name) < 5:
-            raise ValidationError("The length of the name ingredient must be less than 5 caracters.")
+        if len(self.name) < 2:
+            raise ValidationError("The length of the name ingredient must be less than 2 caracters.")

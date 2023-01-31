@@ -185,6 +185,30 @@ class BarApp(http.Controller):
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
 
+    # ADD TABLE
+    @http.route('/bar_app/addTable', auth='public', type="json", method="POST")
+    def addTable(self, **kw):
+        response = request.jsonrequest
+        try:
+            result = http.request.env["bar_app.table_model"].sudo().create(
+                response)
+            data = {"status": 201, "id": result.id}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
+
+    # ADD LINE
+    @http.route('/bar_app/addLine', auth='public', type="json", method="POST")
+    def addLine(self, **kw):
+        response = request.jsonrequest
+        try:
+            result = http.request.env["bar_app.line_model"].sudo().create(
+                response)
+            data = {"status": 201, "id": result.id}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
+
 # ORDER
     # GET ORDER
     @http.route(['/bar_app/getAllOrders','/bar_app/getOrder/<int:id>'], auth='public', type="http")
@@ -198,6 +222,19 @@ class BarApp(http.Controller):
             rec["creationdate"] = rec["creationdate"].isoformat()
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
+
+    # ADD ORDER
+    @http.route('/bar_app/addOrder', auth='public', type="json", method="POST")
+    def addOrder(self, **kw):
+        response = request.jsonrequest
+        try:
+            result = http.request.env["bar_app.order_model"].sudo().create(
+                response)
+            data = {"status": 201, "id": result.id}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
+        return data
 
     # CONFIRM ORDER
     @http.route(['/bar_app/confirmInvoice/<int:id>'], auth='public', type="http")

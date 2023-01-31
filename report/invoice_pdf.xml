@@ -17,8 +17,8 @@
                     <table style="border: 1px solid black;text-align:center;background-color:  #d5d8dc;width:100%;">
                         <tr style="border: 1px solid black;">
                             <th style="border: 1px solid black;">PRODUCT</th>
-                            <th style="border: 1px solid black;">PRICE</th>
                             <th style="border: 1px solid black;">QUANTITY</th>
+                            <th style="border: 1px solid black;">PRICE</th>
                         </tr>
                         <t t-foreach="doc.lines" t-as="linea">
                             <tr style="border: 1px solid black;">
@@ -26,10 +26,10 @@
                                     <t t-esc="linea.product.name" />
                                 </td>
                                 <td style="border: 1px solid black;">
-                                    <t t-esc="linea.product.price" />
+                                    <t t-esc="linea.cuantity" />
                                 </td>
                                 <td style="border: 1px solid black;">
-                                    <t t-esc="linea.cuantity" />
+                                    <t t-esc="linea.product.price" />
                                 </td>
                             </tr>
                         </t>
