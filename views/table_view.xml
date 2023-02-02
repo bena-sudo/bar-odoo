@@ -12,7 +12,7 @@
                             <field name="table" />
                             <field name="numclients" />
                             <field name="client" />
-                            <field name="waiter" />
+                            <field name="waiter" readonly='True'/>
                             <field name="description" />
                         </group>
                     </sheet>

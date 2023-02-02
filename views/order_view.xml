@@ -57,6 +57,20 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="bar_app.order_model_search">
+            <field name="name">Order Filters</field>
+
+            <field name="model">bar_app.order_model</field>
+
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Finished" name="Finished" domain="[('state','=','C')]"/>
+
+                    <filter string="Not Finished" name="NotFinished" domain="[('state','=','D')]"/>
+                </search>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="bar_app.action_window_order_list">
             <field name="name">Tree Order</field>
             <field name="res_model">bar_app.order_model</field>

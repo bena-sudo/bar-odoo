@@ -19,7 +19,7 @@
 
     <!-- BAR COCKER GROUP -->
     <record id="bar_group_cook" model="res.groups">
-        <field name="name">Cocker</field>
+        <field name="name">Cook</field>
         <field name="category_id" ref="module_bar"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>

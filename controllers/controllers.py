@@ -197,18 +197,6 @@ class BarApp(http.Controller):
         except Exception as e:
             data = {"status": 404, "error": e}
 
-    # ADD LINE
-    @http.route('/bar_app/addLine', auth='public', type="json", method="POST")
-    def addLine(self, **kw):
-        response = request.jsonrequest
-        try:
-            result = http.request.env["bar_app.line_model"].sudo().create(
-                response)
-            data = {"status": 201, "id": result.id}
-            return data
-        except Exception as e:
-            data = {"status": 404, "error": e}
-
 # ORDER
     # GET ORDER
     @http.route(['/bar_app/getAllOrders','/bar_app/getOrder/<int:id>'], auth='public', type="http")
@@ -217,7 +205,7 @@ class BarApp(http.Controller):
             domain = [("id", "=", id)]
         else:
             domain = []
-        taskdata = http.request.env["bar_app.order_model"].sudo().search_read(domain, ["order","creationdate","table","lines","tprice"])
+        taskdata = http.request.env["bar_app.order_model"].sudo().search_read(domain, ["order","creationdate","table","lines","tprice","state"])
         for rec in taskdata:
             rec["creationdate"] = rec["creationdate"].isoformat()
         data={ "status":200,"data":taskdata }
@@ -235,6 +223,30 @@ class BarApp(http.Controller):
         except Exception as e:
             data = {"status": 404, "error": e}
         return data
+
+# LINE
+    # GET LINE
+    @http.route(['/bar_app/getAllLines','/bar_app/getLine/<int:id>'],auth='public', type='http')
+    def getLine(self,id=None, **kw):
+        if id:
+            domain = [("id", "=", id)]
+        else:
+            domain=[]
+        taskdata = http.request.env["bar_app.line_model"].sudo().search_read(domain,["id","order","cuantity","product","description"])
+        data={ "status":200,"data":taskdata }
+        return http.Response(json.dumps(data).encode("utf8"),mimetype="application/json")
+
+    # ADD LINE
+    @http.route('/bar_app/addLine', auth='public', type="json", method="POST")
+    def addLine(self, **kw):
+        response = request.jsonrequest
+        try:
+            result = http.request.env["bar_app.line_model"].sudo().create(
+                response)
+            data = {"status": 201, "id": result.id}
+            return data
+        except Exception as e:
+            data = {"status": 404, "error": e}
 
     # CONFIRM ORDER
     @http.route(['/bar_app/confirmInvoice/<int:id>'], auth='public', type="http")

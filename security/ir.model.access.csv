@@ -2,6 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_bar_category_administrator,bar_app.category_model,model_bar_app_category_model,bar_group_admin,1,1,1,1
 access_bar_category_waiter,bar_app.category_model,model_bar_app_category_model,bar_group_waiter,1,0,0,0
+access_bar_category_cook,bar_app.category_model,model_bar_app_category_model,bar_group_cook,1,0,0,0
 
 access_bar_product_administrator,bar_app.product_model,model_bar_app_product_model,bar_group_admin,1,1,1,1
 access_bar_product_waiter,bar_app.product_model,model_bar_app_product_model,bar_group_waiter,1,0,0,0

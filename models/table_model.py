@@ -9,7 +9,7 @@ class TableModel(models.Model):
     table = fields.Text(string="Table",help="Number of the table",required=True,index=True)
     numclients = fields.Integer(string="Number clients",help="Numbers of the clients.",default=1,required=True)
     client = fields.Text(string="Client",help="Name of the client.",required=True)
-    waiter = fields.Text(string="Waiter",help="Name of the waiter.",required=True)
+    waiter = fields.Text(string="Waiter",help="Name of the waiter.",required=True,default=lambda self : self.env.user.name)
     orders = fields.One2many("bar_app.order_model", "table" , string="Orders", required=True)
     description = fields.Char(string="Description",help="Description of the table")
     
