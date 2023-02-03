@@ -233,7 +233,7 @@ class BarApp(http.Controller):
             domain = [("id", "=", id)]
         else:
             domain=[]
-        taskdata = http.request.env["bar_app.line_model"].sudo().search_read(domain,["id","order","cuantity","product","description"])
+        taskdata = http.request.env["bar_app.line_model"].sudo().search_read(domain,["id","order","cuantity","product","description","finish"])
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"),mimetype="application/json")
 

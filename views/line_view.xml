@@ -12,6 +12,7 @@
                             <field name="cuantity" />
                             <field name="product" />
                             <field name="description" />
+                            <field name="finish" />
                         </group>
                     </sheet>
                 </form>
@@ -27,7 +28,21 @@
                     <field name="cuantity" />
                     <field name="product" />
                     <field name="description" />
+                    <field name="finish" />
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bar_app.order_model_search">
+            <field name="name">Line Order Filters</field>
+
+            <field name="model">bar_app.line_model</field>
+
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Finished" name="Finished" domain="[('finish','=','True')]"/>
+                    <filter string="Not Finished" name="NotFinished" domain="[('finish','=','False')]"/>
+                </search>
             </field>
         </record>
 
