@@ -34,15 +34,17 @@
                             </tr>
                         </t>
                         <tr style="border: 1px solid black;">
-                            <th style="border: 1px solid black;">Base: <t t-esc="doc.bprice" /></th>
-                            <th style="border: 1px solid black;">VAT: <t t-esc="doc.vat" /></th>
                             <th style="border: 0px solid black;"> </th>
+                            <th style="border: 1px solid black;">VAT: <t t-esc="doc.vat" /></th>
+                            <th style="border: 1px solid black;">Base: <t t-esc="doc.bprice" /></th>
+                        </tr>
+                        <tr style="border: 1px solid black;">
+                            <th style="border: 0px solid black;"> </th>
+                            <th style="border: 0px solid black;"> </th>
+                            <th style="border: 1px solid black;">Total : <t t-esc="doc.tprice" />€</th>
                         </tr>
                     </table>
                 </p>
-                    <hr></hr>
-                    <p style="text-align:center">Total : <t t-esc="doc.tprice" />€</p>
-                   
                     <hr></hr>
                     Thank you
                 </t>
