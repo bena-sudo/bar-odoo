@@ -10,9 +10,6 @@
                     <sheet>
                         <group>
                             <field name="table" />
-                            <field name="numclients" />
-                            <field name="client" />
-                            <field name="waiter" readonly='True'/>
                             <field name="description" />
                         </group>
                     </sheet>
@@ -27,9 +24,6 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="table" />
-                    <field name="numclients" />
-                    <field name="client" />
-                    <field name="waiter" />
                     <field name="description" />
                 </tree>
             </field>

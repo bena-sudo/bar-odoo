@@ -15,6 +15,9 @@
                         <group>
                             <field name="order" readonly='True'/>
                             <field name="table" attrs="{'readonly': [('state','=', 'C')]}"/>
+                            <field name="numclients" attrs="{'readonly': [('state','=', 'C')]}"/>
+                            <field name="client" attrs="{'readonly': [('state','=', 'C')]}"/>
+                            <field name="waiter" readonly='True'/>
                             <field name="creationdate" readonly='True'/>
                             <field name="lines" attrs="{'readonly': [('state','=', 'C')]}">
                                 <tree>
@@ -38,6 +41,7 @@
                 <tree>
                     <field name="order" />
                     <field name="table" />
+                    <field name="client" />
                     <field name="creationdate" />
                     <field name="tprice" />
                 </tree>

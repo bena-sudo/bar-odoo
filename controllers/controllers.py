@@ -185,6 +185,7 @@ class BarApp(http.Controller):
         data={ "status":200,"data":taskdata }
         return http.Response(json.dumps(data).encode("utf8"), mimetype="application/json")
 
+# TABLE
     # ADD TABLE
     @http.route('/bar_app/addTable', auth='public', type="json", method="POST")
     def addTable(self, **kw):
@@ -205,7 +206,7 @@ class BarApp(http.Controller):
             domain = [("id", "=", id)]
         else:
             domain = []
-        taskdata = http.request.env["bar_app.order_model"].sudo().search_read(domain, ["order","creationdate","table","lines","tprice","state"])
+        taskdata = http.request.env["bar_app.order_model"].sudo().search_read(domain, ["order","table","numclients","client","waiter","creationdate","lines","tprice","state"])
         for rec in taskdata:
             rec["creationdate"] = rec["creationdate"].isoformat()
         data={ "status":200,"data":taskdata }
