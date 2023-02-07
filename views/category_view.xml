@@ -52,7 +52,8 @@
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
                                 <div class="o_kanban_image">
-                                    <field name="photo" nolabel="1" widget="image" class="oe_right oe_avatar" />
+                                    <field name="photo" nolabel="1" widget="image"
+                                        class="oe_right oe_avatar" />
                                 </div>
                                 <div class="oe_kanban_details">
                                     <strong>

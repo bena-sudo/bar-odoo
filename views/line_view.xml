@@ -40,8 +40,9 @@
 
             <field name="arch" type="xml">
                 <search>
-                    <filter string="Finished" name="Finished" domain="[('finish','=','True')]"/>
-                    <filter string="Not Finished" name="NotFinished" domain="[('finish','=','False')]"/>
+                    <filter string="Finished" name="Finished" domain="[('finish','=','True')]" />
+                    <filter string="Not Finished" name="NotFinished"
+                        domain="[('finish','=','False')]" />
                 </search>
             </field>
         </record>

@@ -8,17 +8,18 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="confirmInvoice" type="object" string="Confirm" class="oe_highlight" attrs="{'invisible': [('state','=', 'C')]}"></button>
-                        <field name="state" widget="statusbar"/>
+                        <button name="confirmInvoice" type="object" string="Confirm"
+                            class="oe_highlight" attrs="{'invisible': [('state','=', 'C')]}"></button>
+                        <field name="state" widget="statusbar" />
                     </header>
                     <sheet>
                         <group>
-                            <field name="order" readonly='True'/>
-                            <field name="table" attrs="{'readonly': [('state','=', 'C')]}"/>
-                            <field name="numclients" attrs="{'readonly': [('state','=', 'C')]}"/>
-                            <field name="client" attrs="{'readonly': [('state','=', 'C')]}"/>
-                            <field name="waiter" readonly='True'/>
-                            <field name="creationdate" readonly='True'/>
+                            <field name="order" readonly='True' />
+                            <field name="table" attrs="{'readonly': [('state','=', 'C')]}" />
+                            <field name="numclients" attrs="{'readonly': [('state','=', 'C')]}" />
+                            <field name="client" attrs="{'readonly': [('state','=', 'C')]}" />
+                            <field name="waiter" readonly='True' />
+                            <field name="creationdate" readonly='True' />
                             <field name="lines" attrs="{'readonly': [('state','=', 'C')]}">
                                 <tree>
                                     <field name="cuantity" />
@@ -26,7 +27,7 @@
                                     <field name="description" />
                                 </tree>
                             </field>
-                            <field name="tprice" readonly='True'/>
+                            <field name="tprice" readonly='True' />
                         </group>
                     </sheet>
                 </form>
@@ -68,9 +69,9 @@
 
             <field name="arch" type="xml">
                 <search>
-                    <filter string="Finished" name="Finished" domain="[('state','=','C')]"/>
+                    <filter string="Finished" name="Finished" domain="[('state','=','C')]" />
 
-                    <filter string="Not Finished" name="NotFinished" domain="[('state','=','D')]"/>
+                    <filter string="Not Finished" name="NotFinished" domain="[('state','=','D')]" />
                 </search>
             </field>
         </record>

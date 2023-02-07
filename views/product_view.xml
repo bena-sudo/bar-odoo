@@ -12,7 +12,8 @@
                             <field name="name" />
                             <field name="photo" widget="image" />
                             <field name="currency_id" invisible="True" />
-                            <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                            <field name="price" widget="monetary"
+                                options="{'currency_field': 'currency_id'}" />
                             <field name="category" />
                             <field name="ingredients">
                                 <tree>
@@ -37,7 +38,8 @@
                     <field name="category" />
                     <field name="description" />
                     <field name="currency_id" invisible="True" />
-                    <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                    <field name="price" widget="monetary"
+                        options="{'currency_field': 'currency_id'}" />
                 </tree>
             </field>
         </record>
@@ -58,7 +60,8 @@
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
                                 <div class="o_kanban_image">
-                                    <field name="photo" nolabel="1" widget="image" class="oe_right oe_avatar" />
+                                    <field name="photo" nolabel="1" widget="image"
+                                        class="oe_right oe_avatar" />
                                 </div>
                                 <div class="oe_kanban_details">
                                     <strong>

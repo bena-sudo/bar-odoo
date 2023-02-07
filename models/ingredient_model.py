@@ -7,7 +7,7 @@ class IngredientModel(models.Model):
     _sql_constraints = [('bar_app_ingredientname_uniq','UNIQUE (name)','There cannot be two ingredients with the same name!!')]
 
     name = fields.Text(string="Product name",help="Name of the product",required=True,index=True)
-    products = fields.Many2many("bar_app.product_model", string="Products", required=True, relation="product2ingredient")
+    products = fields.Many2many("bar_app.product_model", string="Products", relation="product2ingredient")
     description = fields.Char(string="Description",help="Description of the ingredient")
 
     @api.constrains("name")
