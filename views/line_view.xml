@@ -47,10 +47,28 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="bar_app.action_window_line_graph">
+            <field name="name">Line Graph</field>
+
+            <field name="model">bar_app.line_model</field>
+
+            <field name="arch" type="xml">
+
+                <graph type="bar">
+
+                    <field name="product" type="row" />
+
+                    <field name="cuantity" type="measure" />
+
+                </graph>
+
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="bar_app.action_window_line_list">
             <field name="name">Tree Line</field>
             <field name="res_model">bar_app.line_model</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
         </record>
     </data>
 </odoo>

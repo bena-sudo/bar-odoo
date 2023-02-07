@@ -45,10 +45,69 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="bar_app.action_window_invoice_pivot">
+            <field name="name">Invoice Pivot</field>
+
+            <field name="model">bar_app.invoice_model</field>
+
+            <field name="arch" type="xml">
+                <pivot string="Pivot invoice">
+                    <field name="reference" />
+                    <field name="client" />
+                    <field name="creationdate" />
+                    <field name="lines" />
+                    <field name="bprice" />
+                    <field name="vat" />
+                    <field name="tprice" />
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bar_app.invoice_model_calendar">
+            <field name="name">Invoice Calendar</field>
+
+            <field name="model">bar_app.invoice_model</field>
+
+            <field name="arch" type="xml">
+                <calendar date_start="creationdate" quick_add="false" color="client" mode="month">
+                    <field name="reference" />
+                    <field name="tprice" />
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bar_app.invoice_model_search">
+            <field name="name">Invoice Filters</field>
+
+            <field name="model">bar_app.invoice_model</field>
+
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Finished" name="Finished" domain="[('state','=','C')]" />
+
+                    <filter string="Not Finished" name="NotFinished" domain="[('state','=','D')]" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bar_app.action_window_invoice_graph">
+            <field name="name">Invoice Graph</field>
+
+            <field name="model">bar_app.invoice_model</field>
+
+            <field name="arch" type="xml">
+
+                <graph type="bar">
+                    <field name="creationdate" type="row" interval="month" />
+                    <field name="tprice" type="measure" widget="monetary"/>
+                </graph>
+            </field>
+        </record>
+        
         <record model="ir.actions.act_window" id="bar_app.action_window_invoice_list">
             <field name="name">Tree invoice</field>
             <field name="res_model">bar_app.invoice_model</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">calendar,tree,form,pivot,graph</field>
         </record>
     </data>
 </odoo>
