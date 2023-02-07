@@ -17,6 +17,7 @@
                 </form>
             </field>
         </record>
+        
         <record model="ir.ui.view" id="bar_app.line_invoice_list">
             <field name="name">Line List</field>
 

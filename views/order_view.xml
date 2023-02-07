@@ -70,7 +70,6 @@
             <field name="arch" type="xml">
                 <search>
                     <filter string="Finished" name="Finished" domain="[('state','=','C')]" />
-
                     <filter string="Not Finished" name="NotFinished" domain="[('state','=','D')]" />
                 </search>
             </field>

@@ -31,6 +31,7 @@
                 </form>
             </field>
         </record>
+        
         <record model="ir.ui.view" id="bar_app.invoice_model_list">
             <field name="name">Order Invoice</field>
 
@@ -84,7 +85,6 @@
             <field name="arch" type="xml">
                 <search>
                     <filter string="Finished" name="Finished" domain="[('state','=','C')]" />
-
                     <filter string="Not Finished" name="NotFinished" domain="[('state','=','D')]" />
                 </search>
             </field>
@@ -96,7 +96,6 @@
             <field name="model">bar_app.invoice_model</field>
 
             <field name="arch" type="xml">
-
                 <graph type="bar">
                     <field name="creationdate" type="row" interval="month" />
                     <field name="tprice" type="measure" widget="monetary"/>

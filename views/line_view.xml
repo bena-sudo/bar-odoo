@@ -18,6 +18,7 @@
                 </form>
             </field>
         </record>
+        
         <record model="ir.ui.view" id="bar_app.order_line_list">
             <field name="name">Line List</field>
 
@@ -53,15 +54,10 @@
             <field name="model">bar_app.line_model</field>
 
             <field name="arch" type="xml">
-
                 <graph type="bar">
-
                     <field name="product" type="row" />
-
                     <field name="cuantity" type="measure" />
-
                 </graph>
-
             </field>
         </record>
 
