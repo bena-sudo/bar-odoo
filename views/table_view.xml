@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.table_model_form">
             <field name="name">Tree Table</field>
-
             <field name="model">bar_app.table_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -19,9 +17,7 @@
 
         <record model="ir.ui.view" id="bar_app.table_model_list">
             <field name="name">Table List</field>
-
             <field name="model">bar_app.table_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="table" />

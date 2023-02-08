@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.ingredient_model_form">
             <field name="name">Tree Ingredient</field>
-
             <field name="model">bar_app.ingredient_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -22,11 +20,10 @@
                 </form>
             </field>
         </record>
+
         <record model="ir.ui.view" id="bar_app.ingredient_model_list">
             <field name="name">Ingredient List</field>
-
             <field name="model">bar_app.ingredient_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="name" />
@@ -35,10 +32,35 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="bar_app.ingredient_model_kanban">
+            <field name="name">Tree Ingredient</field>
+            <field name="model">bar_app.ingredient_model</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="description" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name" class="oe_inline" />
+                                    </strong>
+                                    <div t-if="record.description.value">
+                                        <t t-esc="record.description.value" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="bar_app.action_window_ingredient_list">
             <field name="name">Tree Ingredient</field>
             <field name="res_model">bar_app.ingredient_model</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record>
     </data>
 </odoo>

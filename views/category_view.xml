@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.category_model_form">
             <field name="name">Tree Category</field>
-
             <field name="model">bar_app.category_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -28,9 +26,7 @@
         </record>
         <record model="ir.ui.view" id="bar_app.category_model_list">
             <field name="name">Category List</field>
-
             <field name="model">bar_app.category_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="name" />
@@ -38,11 +34,10 @@
                 </tree>
             </field>
         </record>
+
         <record model="ir.ui.view" id="bar_app.category_model_kanban">
             <field name="name">Tree Category</field>
-
             <field name="model">bar_app.category_model</field>
-
             <field name="arch" type="xml">
                 <kanban>
                     <field name="name" />

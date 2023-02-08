@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.order_line_form">
             <field name="name">Tree Line</field>
-
             <field name="model">bar_app.line_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -21,9 +19,7 @@
         
         <record model="ir.ui.view" id="bar_app.order_line_list">
             <field name="name">Line List</field>
-
             <field name="model">bar_app.line_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="cuantity" />
@@ -36,9 +32,7 @@
 
         <record model="ir.ui.view" id="bar_app.order_model_search">
             <field name="name">Line Order Filters</field>
-
             <field name="model">bar_app.line_model</field>
-
             <field name="arch" type="xml">
                 <search>
                     <filter string="Finished" name="Finished" domain="[('finish','=','True')]" />
@@ -50,9 +44,7 @@
 
         <record model="ir.ui.view" id="bar_app.action_window_line_graph">
             <field name="name">Line Graph</field>
-
             <field name="model">bar_app.line_model</field>
-
             <field name="arch" type="xml">
                 <graph type="bar">
                     <field name="product" type="row" />

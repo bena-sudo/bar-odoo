@@ -7,8 +7,8 @@
         <!-- menu categories -->
         <menuitem name="Inventory" id="bar_app.menu_inventory" parent="bar_app.menu_root" />
         <menuitem name="Category" id="bar_app.menu_category" parent="bar_app.menu_root" />
-        <menuitem name="Order" id="bar_app.menu_order" parent="bar_app.menu_root" />
         <menuitem name="Table" id="bar_app.menu_table" parent="bar_app.menu_root" />
+        <menuitem name="Order" id="bar_app.menu_order" parent="bar_app.menu_root" />
         <menuitem name="Invoice" id="bar_app.menu_invoice" parent="bar_app.menu_root" />
 
         <!-- actions -->

@@ -49,3 +49,7 @@ class OrderModel(models.Model):
             line["product"] = l.product.id
             line["description"] = l.description
             self.env["bar_app.line_invoice_model"].sudo().create(line)
+
+    @api.onchange("table")
+    def _changeClient(self):    
+        self.client = self.table.table

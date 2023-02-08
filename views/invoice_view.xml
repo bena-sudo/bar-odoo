@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.invoice_model_form">
             <field name="name">Tree Invoice</field>
-
             <field name="model">bar_app.invoice_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <header>
@@ -34,9 +32,7 @@
         
         <record model="ir.ui.view" id="bar_app.invoice_model_list">
             <field name="name">Order Invoice</field>
-
             <field name="model">bar_app.invoice_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="reference" />
@@ -48,9 +44,7 @@
 
         <record model="ir.ui.view" id="bar_app.action_window_invoice_pivot">
             <field name="name">Invoice Pivot</field>
-
             <field name="model">bar_app.invoice_model</field>
-
             <field name="arch" type="xml">
                 <pivot string="Pivot invoice">
                     <field name="reference" />
@@ -66,9 +60,7 @@
 
         <record model="ir.ui.view" id="bar_app.invoice_model_calendar">
             <field name="name">Invoice Calendar</field>
-
             <field name="model">bar_app.invoice_model</field>
-
             <field name="arch" type="xml">
                 <calendar date_start="creationdate" quick_add="false" color="client" mode="month">
                     <field name="reference" />
@@ -79,9 +71,7 @@
 
         <record model="ir.ui.view" id="bar_app.invoice_model_search">
             <field name="name">Invoice Filters</field>
-
             <field name="model">bar_app.invoice_model</field>
-
             <field name="arch" type="xml">
                 <search>
                     <filter string="Finished" name="Finished" domain="[('state','=','C')]" />
@@ -92,9 +82,7 @@
 
         <record model="ir.ui.view" id="bar_app.action_window_invoice_graph">
             <field name="name">Invoice Graph</field>
-
             <field name="model">bar_app.invoice_model</field>
-
             <field name="arch" type="xml">
                 <graph type="bar">
                     <field name="creationdate" type="row" interval="month" />

@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.order_model_form">
             <field name="name">Tree Order</field>
-
             <field name="model">bar_app.order_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <header>
@@ -35,9 +33,7 @@
         </record>
         <record model="ir.ui.view" id="bar_app.order_model_list">
             <field name="name">Order List</field>
-
             <field name="model">bar_app.order_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="order" />
@@ -51,9 +47,7 @@
 
         <record model="ir.ui.view" id="bar_app.order_model_calendar">
             <field name="name">Order Calendar</field>
-
             <field name="model">bar_app.order_model</field>
-
             <field name="arch" type="xml">
                 <calendar date_start="creationdate" quick_add="false" color="table" mode="month">
                     <field name="order" />
@@ -64,9 +58,7 @@
 
         <record model="ir.ui.view" id="bar_app.order_model_search">
             <field name="name">Order Filters</field>
-
             <field name="model">bar_app.order_model</field>
-
             <field name="arch" type="xml">
                 <search>
                     <filter string="Finished" name="Finished" domain="[('state','=','C')]" />

@@ -2,9 +2,7 @@
     <data>
         <record model="ir.ui.view" id="bar_app.line_invoice_form">
             <field name="name">Tree Line</field>
-
             <field name="model">bar_app.line_invoice_model</field>
-
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -20,9 +18,7 @@
         
         <record model="ir.ui.view" id="bar_app.line_invoice_list">
             <field name="name">Line List</field>
-
             <field name="model">bar_app.line_invoice_model</field>
-
             <field name="arch" type="xml">
                 <tree>
                     <field name="lineId" />
