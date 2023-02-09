@@ -24,13 +24,13 @@
             action="bar_app.action_window_order_list" />
             <menuitem name="List Line" id="bar_app.menu_line_list" parent="bar_app.menu_order"
             action="bar_app.action_window_line_list" />
-            <menuitem name="List Line Cook" id="bar_app.menu_line_cook_list"
-            parent="bar_app.menu_order" action="bar_app.action_window_line_cook_list" group="bar_group_cook"/>
 
         <menuitem name="Invoice" id="bar_app.menu_invoice" parent="bar_app.menu_root" />        
             <menuitem name="List Invoice" id="bar_app.menu_invoice_list" parent="bar_app.menu_invoice"
                 action="bar_app.action_window_invoice_list" />
             <menuitem name="List Line Invoice" id="bar_app.menu_line_invoice_list"
                 parent="bar_app.menu_invoice" action="bar_app.action_window_line_invoice_list" />
+
+        <menuitem name="List Cook" id="bar_app.menu_window_line_cook_list" parent="bar_app.menu_root" action="bar_app.action_window_line_cook_list" />
     </data>
 </odoo>

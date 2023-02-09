@@ -30,6 +30,7 @@
         'views/ingredient_view.xml',
         'views/order_view.xml',
         'views/line_view.xml',
+        'views/line_view_cook.xml',
         'views/table_view.xml',
         'views/invoice_view.xml',
         'views/line_invoice_view.xml',

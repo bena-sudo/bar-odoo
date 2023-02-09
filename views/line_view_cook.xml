@@ -31,7 +31,7 @@
             <field name="name">Tree Line Cook</field>
             <field name="res_model">bar_app.line_model</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[("state", "=", "D")]</field>
+            <field name="domain">[("state", "=", "C")]</field>
         </record>
     </data>
 </odoo>
