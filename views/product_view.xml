@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <record model="ir.ui.view" id="bar_app.product_model_form">
-            <field name="name">Tree Product</field>
+            <field name="name">Form Product</field>
             <field name="model">bar_app.product_model</field>
             <field name="arch" type="xml">
                 <form>
