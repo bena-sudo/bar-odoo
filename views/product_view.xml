@@ -20,6 +20,7 @@
                                 </tree>
                             </field>
                             <field name="description" />
+                            <field name="destination" />
                         </group>
                     </sheet>
                 </form>

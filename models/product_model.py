@@ -12,6 +12,7 @@ class ProductModel(models.Model):
     price = fields.Monetary(string="Price",help="Price of the product",required=True)
     category = fields.Many2many("bar_app.category_model", string="Category", relation="product2category")
     ingredients = fields.Many2many("bar_app.ingredient_model", string="Ingredients", relation="product2ingredient")
+    destination = fields.Selection([ ('K','Kitchen'),('B','Bar'),],string='Destination',default="K")
     description = fields.Char(string="Description",help="Description of the product")
 
     @api.constrains("name")

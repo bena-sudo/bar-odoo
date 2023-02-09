@@ -16,13 +16,15 @@
             </field>
         </record>
         <record model="ir.ui.view" id="bar_app.order_line_barman_list">
-            <field name="name">Line List</field>
+            <field name="name">Line List Barman</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="cuantity" />
                     <field name="product" />
                     <field name="description" />
+                    <button name="changeStateDone" type="object" string="Done"
+                            class="oe_highlight"></button>
                 </tree>
             </field>
         </record>
@@ -31,7 +33,7 @@
             <field name="name">Tree Line Barman</field>
             <field name="res_model">bar_app.line_model</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[("state", "=", "C")]</field>
+            <field name="domain">[("state", "=", "P"),("product.destination", "=", "B")]</field>
         </record>
     </data>
 </odoo>

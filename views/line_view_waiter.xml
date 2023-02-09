@@ -1,6 +1,6 @@
 <odoo>
     <data> 
-        <record model="ir.ui.view" id="bar_app.line_cook_form">
+        <record model="ir.ui.view" id="bar_app.line_waiter_form">
             <field name="name">Form Line</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
@@ -15,25 +15,25 @@
                 </form>
             </field>
         </record>
-        <record model="ir.ui.view" id="bar_app.order_line_cook_list">
-            <field name="name">Line List Cook</field>
+        <record model="ir.ui.view" id="bar_app.order_line_waiter_list">
+            <field name="name">Line List Waiter</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="cuantity" />
                     <field name="product" />
                     <field name="description" />
-                    <button name="changeStateDone" type="object" string="Done"
+                    <button name="changeStateDelivered" type="object" string="Done"
                             class="oe_highlight"></button>
                 </tree>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="bar_app.action_window_line_cook_list">
-            <field name="name">Tree Line Cook</field>
+        <record model="ir.actions.act_window" id="bar_app.action_window_line_waiter_list">
+            <field name="name">Tree Line Waiter</field>
             <field name="res_model">bar_app.line_model</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[("state", "=", "P"),("product.destination", "=", "K")]</field>
+            <field name="domain">[("state", "=", "D")]</field>
         </record>
     </data>
 </odoo>
