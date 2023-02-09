@@ -23,4 +23,11 @@
         <field name="category_id" ref="module_bar" />
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
     </record>
+
+    <!-- BAR BARMAN GROUP -->
+    <record id="bar_group_barman" model="res.groups">
+        <field name="name">Barman</field>
+        <field name="category_id" ref="module_bar" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
 </odoo>

@@ -1,6 +1,6 @@
 <odoo>
-    <data>
-        <record model="ir.ui.view" id="bar_app.order_line_form">
+    <data> 
+        <record model="ir.ui.view" id="bar_app.line_cook_form">
             <field name="name">Tree Line</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
@@ -10,14 +10,12 @@
                             <field name="cuantity" />
                             <field name="product" />
                             <field name="description" />
-                            <field name="state" />
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-        
-        <record model="ir.ui.view" id="bar_app.order_line_list">
+        <record model="ir.ui.view" id="bar_app.order_line_cook_list">
             <field name="name">Line List</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
@@ -25,26 +23,15 @@
                     <field name="cuantity" />
                     <field name="product" />
                     <field name="description" />
-                    <field name="state" />
                 </tree>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="bar_app.action_window_line_graph">
-            <field name="name">Line Graph</field>
-            <field name="model">bar_app.line_model</field>
-            <field name="arch" type="xml">
-                <graph type="bar">
-                    <field name="product" type="row" />
-                    <field name="cuantity" type="measure" />
-                </graph>
-            </field>
-        </record>
-
-        <record model="ir.actions.act_window" id="bar_app.action_window_line_list">
-            <field name="name">Tree Line</field>
+        <record model="ir.actions.act_window" id="bar_app.action_window_line_cook_list">
+            <field name="name">Tree Line Cook</field>
             <field name="res_model">bar_app.line_model</field>
-            <field name="view_mode">tree,form,graph</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("state", "=", "D")]</field>
         </record>
     </data>
 </odoo>

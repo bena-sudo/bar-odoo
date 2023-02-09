@@ -12,10 +12,10 @@ class OrderModel(models.Model):
     numclients = fields.Integer(string="Number clients",help="Numbers of the clients.",default=1,required=True)
     client = fields.Text(string="Client",help="Name of the client.",required=True)
     waiter = fields.Text(string="Waiter",help="Name of the waiter.",required=True,default=lambda self : self.env.user.name)
-    creationdate = fields.Date(srting="Date",help="Date",default=lambda self: datetime.now())
+    creationdate = fields.Date(string="Date",help="Date",default=lambda self: datetime.now())
     lines = fields.One2many("bar_app.line_model", "order" , string="Products")
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
-    state = fields.Char(String="state",default="D")
+    state = fields.Char(string="state",default="D")
 
     @api.constrains("numclients")
     def _checkValue(self):

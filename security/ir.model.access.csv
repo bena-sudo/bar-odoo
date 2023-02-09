@@ -3,22 +3,27 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_bar_category_administrator,bar_app.category_model,model_bar_app_category_model,bar_group_admin,1,1,1,1
 access_bar_category_waiter,bar_app.category_model,model_bar_app_category_model,bar_group_waiter,1,0,0,0
 access_bar_category_cook,bar_app.category_model,model_bar_app_category_model,bar_group_cook,1,0,0,0
+access_bar_category_barman,bar_app.category_model,model_bar_app_category_model,bar_group_barman,1,0,0,0
 
 access_bar_product_administrator,bar_app.product_model,model_bar_app_product_model,bar_group_admin,1,1,1,1
 access_bar_product_waiter,bar_app.product_model,model_bar_app_product_model,bar_group_waiter,1,0,0,0
 access_bar_product_cook,bar_app.product_model,model_bar_app_product_model,bar_group_cook,1,0,0,0
+access_bar_product_barman,bar_app.product_model,model_bar_app_product_model,bar_group_barman,1,0,0,0
 
 access_bar_ingredient_administrator,bar_app.ingredient_model,model_bar_app_ingredient_model,bar_group_admin,1,1,1,1
 access_bar_ingredient_waiter,bar_app.ingredient_model,model_bar_app_ingredient_model,bar_group_waiter,1,0,0,0
 access_bar_ingredient_cook,bar_app.ingredient_model,model_bar_app_ingredient_model,bar_group_cook,1,0,0,0
+access_bar_ingredient_barman,bar_app.ingredient_model,model_bar_app_ingredient_model,bar_group_barman,1,0,0,0
 
 access_bar_order_administrator,bar_app.order_model,model_bar_app_order_model,bar_group_admin,1,1,1,1
 access_bar_order_waiter,bar_app.order_model,model_bar_app_order_model,bar_group_waiter,1,1,1,1
 access_bar_order_cook,bar_app.order_model,model_bar_app_order_model,bar_group_cook,1,1,0,0
+access_bar_order_barman,bar_app.order_model,model_bar_app_order_model,bar_group_barman,1,1,0,0
 
 access_bar_line_administrator,bar_app.line_model,model_bar_app_line_model,bar_group_admin,1,1,1,1
 access_bar_line_waiter,bar_app.line_model,model_bar_app_line_model,bar_group_waiter,1,1,1,1
-access_bar_line_cook,bar_app.line_model,model_bar_app_line_model,bar_group_cook,1,0,0,0
+access_bar_line_cook,bar_app.line_model,model_bar_app_line_model,bar_group_cook,1,1,0,0
+access_bar_line_barman,bar_app.line_model,model_bar_app_line_model,bar_group_barman,1,1,0,0
 
 access_bar_table_administrator,bar_app.table_model,model_bar_app_table_model,bar_group_admin,1,1,1,1
 access_bar_table_waiter,bar_app.table_model,model_bar_app_table_model,bar_group_waiter,1,1,1,1

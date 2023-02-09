@@ -9,12 +9,12 @@ class InvoiceModel(models.Model):
 
     reference = fields.Integer(string="Invoice number",index=True,default = lambda self : self._generateRef())
     client = fields.Char(string="Client",help="Client name",required=True)
-    creationdate = fields.Date(srting="Date",help="Date",redonly=1,default=lambda self: datetime.today())
+    creationdate = fields.Date(string="Date",help="Date",default=lambda self: datetime.today())
     lines = fields.One2many("bar_app.line_invoice_model", "lineId" , string="Lines")
     bprice = fields.Float(string="Base price",compute="_getBasePrice",store=True)
     vat = fields.Selection([ ('0','0'),('4','4'),('10','10'),('21','21'),],string='VAT',help="VAT number % to add to base price",default="10")
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
-    state = fields.Char(String="state",default="D")
+    state = fields.Char(string="state",default="D")
 
     @api.depends('lines')
     def _getBasePrice(self):
