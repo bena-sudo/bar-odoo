@@ -1,7 +1,7 @@
 <odoo>
     <data> 
         <record model="ir.ui.view" id="bar_app.line_barman_form">
-            <field name="name">Form Line</field>
+            <field name="name">Form Line Barman</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
                 <form>
@@ -10,16 +10,19 @@
                             <field name="cuantity" />
                             <field name="product" />
                             <field name="description" />
+                            <field name="state" />
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-        <record model="ir.ui.view" id="bar_app.order_line_barman_list">
+
+        <record model="ir.ui.view" id="bar_app.line_barman_list">
             <field name="name">Line List Barman</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="order" />
                     <field name="cuantity" />
                     <field name="product" />
                     <field name="description" />

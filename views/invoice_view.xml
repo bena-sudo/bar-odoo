@@ -94,7 +94,7 @@
         <record model="ir.actions.act_window" id="bar_app.action_window_invoice_list">
             <field name="name">Tree invoice</field>
             <field name="res_model">bar_app.invoice_model</field>
-            <field name="view_mode">calendar,tree,form,pivot,graph</field>
+            <field name="view_mode">tree,calendar,form,pivot,graph</field>
         </record>
     </data>
 </odoo>

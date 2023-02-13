@@ -6,6 +6,7 @@ class OrderModel(models.Model):
     _name = 'bar_app.order_model'
     _description = 'This is a order model.'
     _rec_name = 'order'
+    _sql_constraints = [('bar_app_order_uniq','UNIQUE (table) AND CHECK(state IS D)','There cannot be two products with the same name!!')]
 
     order = fields.Integer(string="Order number",index=True,default = lambda self : self._generateOrder())
     table = fields.Many2one("bar_app.table_model", string="Table")
@@ -16,6 +17,7 @@ class OrderModel(models.Model):
     lines = fields.One2many("bar_app.line_model", "order" , string="Products")
     tprice = fields.Float(string="Total price",compute="_getTotalPrice",store=True)
     state = fields.Char(string="state",default="D")
+    action = fields.Selection([ ('W','Wait'),('D','Delivered'),('F','Finish'),],string='Action',default="W")
 
     @api.constrains("numclients")
     def _checkValue(self):
@@ -26,7 +28,22 @@ class OrderModel(models.Model):
     def _getTotalPrice(self):
         self.tprice = 0
         for line in self.lines:
-            self.tprice += line.cuantity * line.product.price
+            self.tprice += line.cuantity * line.product.price  
+
+        flag = True
+        flag2 = True
+        self.action = "W" 
+        for line in self.lines:
+            if line.state == "D":
+                self.action = "D"
+                flag = False
+            if line.state == "P":
+                self.action = "W"
+                flag = False
+            
+        if flag == True and flag2 == True:
+            self.action = "F"
+        
 
     def _generateOrder(self):
         ids = self.env["bar_app.order_model"].sudo().search_read([],["order"])
@@ -52,4 +69,5 @@ class OrderModel(models.Model):
 
     @api.onchange("table")
     def _changeClient(self):    
-        self.client = self.table.table
+        self.client = "Cliente "+str(self.table.table)
+        

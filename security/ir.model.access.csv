@@ -26,7 +26,7 @@ access_bar_line_cook,bar_app.line_model,model_bar_app_line_model,bar_group_cook,
 access_bar_line_barman,bar_app.line_model,model_bar_app_line_model,bar_group_barman,1,1,0,0
 
 access_bar_table_administrator,bar_app.table_model,model_bar_app_table_model,bar_group_admin,1,1,1,1
-access_bar_table_waiter,bar_app.table_model,model_bar_app_table_model,bar_group_waiter,1,1,1,1
+access_bar_table_waiter,bar_app.table_model,model_bar_app_table_model,bar_group_waiter,1,0,0,0
 
 access_bar_invoice_administrator,bar_app.invoice_model,model_bar_app_invoice_model,bar_group_admin,1,1,1,1
 access_bar_invoice_waiter,bar_app.invoice_model,model_bar_app_invoice_model,bar_group_waiter,1,0,0,0

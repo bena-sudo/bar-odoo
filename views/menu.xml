@@ -14,10 +14,10 @@
                 action="bar_app.action_window_category_list" />
 
         <menuitem name="Order" id="bar_app.menu_order" parent="bar_app.menu_root" />
-            <menuitem name="List Table" id="bar_app.menu_table_list" parent="bar_app.menu_order"
-                action="bar_app.action_window_table_list" />
             <menuitem name="List Orders" id="bar_app.menu_order_list" parent="bar_app.menu_order"
                 action="bar_app.action_window_order_list" />
+            <menuitem name="List Table" id="bar_app.menu_table_list" parent="bar_app.menu_order"
+                action="bar_app.action_window_table_list" />
             <menuitem name="List Line" id="bar_app.menu_line_list" parent="bar_app.menu_order"
                 action="bar_app.action_window_line_list" />
 
@@ -28,10 +28,10 @@
                 action="bar_app.action_window_line_invoice_list" />
 
         <menuitem name="List Cook" id="bar_app.menu_window_line_cook_list" parent="bar_app.menu_root" 
-            action="bar_app.action_window_line_cook_list" />
+            action="bar_app.action_window_line_cook_list" groups="bar_group_cook" />
         <menuitem name="List Barman" id="bar_app.menu_window_line_barman_list" parent="bar_app.menu_root" 
-            action="bar_app.action_window_line_barman_list" />
+            action="bar_app.action_window_line_barman_list" groups="bar_group_barman" />
         <menuitem name="List Waiter" id="bar_app.menu_window_line_waiter_list" parent="bar_app.menu_root" 
-            action="bar_app.action_window_line_waiter_list" />
+            action="bar_app.action_window_line_waiter_list" groups="bar_group_waiter" />
     </data>
 </odoo>

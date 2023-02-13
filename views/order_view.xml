@@ -23,6 +23,7 @@
                                     <field name="cuantity" />
                                     <field name="product" />
                                     <field name="description" />
+                                    <field name="state" />
                                 </tree>
                             </field>
                             <field name="tprice" readonly='True' />
@@ -35,12 +36,13 @@
             <field name="name">Order List</field>
             <field name="model">bar_app.order_model</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree decoration-danger="action == 'D'" decoration-success="action == 'F'" decoration-info="action == 'W'">
                     <field name="order" />
                     <field name="table" />
                     <field name="client" />
                     <field name="creationdate" />
                     <field name="tprice" />
+                    <field name="action" />
                 </tree>
             </field>
         </record>
@@ -70,7 +72,8 @@
         <record model="ir.actions.act_window" id="bar_app.action_window_order_list">
             <field name="name">Tree Order</field>
             <field name="res_model">bar_app.order_model</field>
-            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_mode">tree,calendar,form</field>
+            <field name="domain">[("state", "=", "D")]</field>
         </record>
     </data>
 </odoo>

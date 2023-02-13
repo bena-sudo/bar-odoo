@@ -1,7 +1,7 @@
 <odoo>
     <data> 
         <record model="ir.ui.view" id="bar_app.line_waiter_form">
-            <field name="name">Form Line</field>
+            <field name="name">Form Line Waiter</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
                 <form>
@@ -10,20 +10,24 @@
                             <field name="cuantity" />
                             <field name="product" />
                             <field name="description" />
+                            <field name="state" />
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-        <record model="ir.ui.view" id="bar_app.order_line_waiter_list">
+
+        <record model="ir.ui.view" id="bar_app.line_waiter_list">
             <field name="name">Line List Waiter</field>
             <field name="model">bar_app.line_model</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="order" />
                     <field name="cuantity" />
                     <field name="product" />
                     <field name="description" />
-                    <button name="changeStateDelivered" type="object" string="Done"
+                    <field name="state" />
+                    <button name="changeStateDelivered" type="object" string="Delivered"
                             class="oe_highlight"></button>
                 </tree>
             </field>
