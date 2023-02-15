@@ -6,7 +6,6 @@ class OrderModel(models.Model):
     _name = 'bar_app.order_model'
     _description = 'This is a order model.'
     _rec_name = 'order'
-    _sql_constraints = [('bar_app_order_uniq','UNIQUE (table) AND CHECK(state IS D)','There cannot be two products with the same name!!')]
 
     order = fields.Integer(string="Order number",index=True,default = lambda self : self._generateOrder())
     table = fields.Many2one("bar_app.table_model", string="Table")
