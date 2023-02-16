@@ -91,6 +91,10 @@
             <field name="name">Tree Line</field>
             <field name="res_model">bar_app.line_model</field>
             <field name="view_mode">tree,form,graph</field>
+            <field name="view_ids"
+                eval="[(5,0,0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('bar_app.line_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('bar_app.line_form')})]" />
         </record>
 
         <record model="ir.actions.act_window" id="bar_app.action_window_line_barman_list">

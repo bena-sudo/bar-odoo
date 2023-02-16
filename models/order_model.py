@@ -29,7 +29,7 @@ class OrderModel(models.Model):
         for rec in records:
             if rec.table == self.table:
                 if rec.table.state == True:
-                    raise ValidationError("There cannot be two order with the same table!!")
+                    raise ValidationError("There cannot be two order active with the same table!!")
         self.table.changeState()
 
 
@@ -39,6 +39,8 @@ class OrderModel(models.Model):
         for line in self.lines:
             self.tprice += line.cuantity * line.product.price
 
+        self.changeColor()
+
     @api.depends("lines")
     def changeColor(self):
         flagD = False
@@ -46,9 +48,9 @@ class OrderModel(models.Model):
         
         for line in self.lines:
             if line.state == "P":
-                flagD = True
-            elif line.state == "D":
                 flagW = True
+            elif line.state == "D":
+                flagD = True
 
         if flagD == True:
             self.action = "D"
