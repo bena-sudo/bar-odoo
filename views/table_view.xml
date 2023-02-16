@@ -9,6 +9,7 @@
                         <group>
                             <field name="table" />
                             <field name="description" />
+                            <field name="state" />
                         </group>
                     </sheet>
                 </form>

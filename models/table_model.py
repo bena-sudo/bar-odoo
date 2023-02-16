@@ -9,4 +9,11 @@ class TableModel(models.Model):
     table = fields.Text(string="Table",help="Information of the table",required=True,index=True)
     orders = fields.One2many("bar_app.order_model", "table" , string="Orders")
     description = fields.Char(string="Description",help="Description of the table")
+    state = fields.Boolean(string="State",default=False)
+
+    def changeState(self):
+        if(self.state):
+            self.state = False
+        else:
+            self.state = True
     

@@ -12,6 +12,8 @@ class LineModel(models.Model):
 
     def changeStateDone(self):    
         self.state = 'D'
+        self.order.changeColor()
 
     def changeStateDelivered(self):    
         self.state = 'DE'
+        self.order.changeColor()

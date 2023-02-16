@@ -23,26 +23,39 @@ class OrderModel(models.Model):
         if self.numclients <= 0:
             raise ValidationError("The value of the number client order must be less than 0.")
 
+    @api.constrains("table")
+    def _numTable(self):
+        records = self.env["bar_app.order_model"].search([])
+        for rec in records:
+            if rec.table == self.table:
+                if rec.table.state == True:
+                    raise ValidationError("There cannot be two order with the same table!!")
+        self.table.changeState()
+
+
     @api.depends("lines")
     def _getTotalPrice(self):
         self.tprice = 0
         for line in self.lines:
-            self.tprice += line.cuantity * line.product.price  
+            self.tprice += line.cuantity * line.product.price
 
-        flag = True
-        flag2 = True
-        self.action = "W" 
-        for line in self.lines:
-            if line.state == "D":
-                self.action = "D"
-                flag = False
-            if line.state == "P":
-                self.action = "W"
-                flag = False
-            
-        if flag == True and flag2 == True:
-            self.action = "F"
+    @api.depends("lines")
+    def changeColor(self):
+        flagD = False
+        flagW = False
         
+        for line in self.lines:
+            if line.state == "P":
+                flagD = True
+            elif line.state == "D":
+                flagW = True
+
+        if flagD == True:
+            self.action = "D"
+        elif flagW == True:
+            self.action = "W"
+        else:
+            self.action = "F"        
 
     def _generateOrder(self):
         ids = self.env["bar_app.order_model"].sudo().search_read([],["order"])
@@ -65,6 +78,7 @@ class OrderModel(models.Model):
             line["product"] = l.product.id
             line["description"] = l.description
             self.env["bar_app.line_invoice_model"].sudo().create(line)
+        self.table.changeState()
 
     @api.onchange("table")
     def _changeClient(self):    
