@@ -32,7 +32,6 @@ class OrderModel(models.Model):
                     raise ValidationError("There cannot be two order active with the same table!!")
         self.table.changeState()
 
-
     @api.depends("lines")
     def _getTotalPrice(self):
         self.tprice = 0
@@ -66,7 +65,10 @@ class OrderModel(models.Model):
             return int(id['order'])+1    
         return 1
 
-    def confirmInvoice(self):    
+    def confirmInvoice(self): 
+        for l in self.lines:
+            if l.state != "DE":
+                raise ValidationError("The order is missing products to deliver!!") 
         self.state = 'C'
         invoice = {}
         invoice["client"] = self.client
